@@ -1,0 +1,32 @@
+void main() {
+  double accountBalance = 1000.0;
+
+  int userChoice = 2;
+
+  double depositAmount = 250.0;
+
+  print("=== Welcome to Simple ATM ===");
+
+  if (userChoice == 1) {
+    print("Current Balance: ₱${accountBalance.toStringAsFixed(2)}");
+  } else if (userChoice == 2) {
+    print("Current operation: Deposit");
+    accountBalance = deposit(accountBalance, depositAmount);
+    print("Final Balance: ₱${accountBalance.toStringAsFixed(2)}");
+  } else if (userChoice == 3) {
+  } else {
+    print("Invalid choice");
+  }
+}
+
+double deposit(double currentBalance, double amount) {
+  if (amount > 0) {
+    double newBalance = currentBalance + amount;
+    print("Deposited: ₱${amount.toStringAsFixed(2)}");
+    print("New Balance: ₱${newBalance.toStringAsFixed(2)}");
+    return newBalance;
+  } else {
+    print("Invalid deposit amount. Must be greater than 0.");
+    return currentBalance;
+  }
+}
